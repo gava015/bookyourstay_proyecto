@@ -1,11 +1,11 @@
-package co.edu.uniquindio.bookyourstayco.factory;
+package co.edu.uniquindio.bookyourstay.factory;
 
-import co.edu.uniquindio.bookyourstayco.enums.Servicio;
-import co.edu.uniquindio.bookyourstayco.enums.TipoAlojamiento;
-import co.edu.uniquindio.bookyourstayco.modelo.Alojamiento;
-import co.edu.uniquindio.bookyourstayco.modelo.Apartamento;
-import co.edu.uniquindio.bookyourstayco.modelo.Casa;
-import co.edu.uniquindio.bookyourstayco.modelo.Hotel;
+import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
+import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
+import co.edu.uniquindio.bookyourstay.modelo.Apartamento;
+import co.edu.uniquindio.bookyourstay.modelo.Casa;
+import co.edu.uniquindio.bookyourstay.modelo.Hotel;
 
 import java.util.List;
 import java.util.UUID;

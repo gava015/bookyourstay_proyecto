@@ -1,4 +1,4 @@
-package co.edu.uniquindio.bookyourstayco.observador;
+package co.edu.uniquindio.bookyourstay.observador;
 
 public interface Observador {
     void notificar();

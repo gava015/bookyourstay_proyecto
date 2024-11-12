@@ -1,4 +1,4 @@
-package co.edu.uniquindio.bookyourstayco.controlador;
+package co.edu.uniquindio.bookyourstay.controlador;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

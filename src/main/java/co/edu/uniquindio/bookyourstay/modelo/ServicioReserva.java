@@ -1,12 +1,11 @@
-package co.edu.uniquindio.bookyourstayco.modelo;
+package co.edu.uniquindio.bookyourstay.modelo;
 
-import co.edu.uniquindio.bookyourstayco.enums.EstadoReserva;
-import co.edu.uniquindio.bookyourstayco.enums.Servicio;
-import co.edu.uniquindio.bookyourstayco.enums.TipoAlojamiento;
-import co.edu.uniquindio.bookyourstayco.factory.AlojamientoFactory;
-import co.edu.uniquindio.bookyourstayco.servicios.Gestion;
-import co.edu.uniquindio.bookyourstayco.servicios.GestionUsuario;
-import co.edu.uniquindio.bookyourstayco.util.ValidacionUtil;
+import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
+import co.edu.uniquindio.bookyourstay.factory.AlojamientoFactory;
+import co.edu.uniquindio.bookyourstay.servicios.Gestion;
+import co.edu.uniquindio.bookyourstay.servicios.GestionUsuario;
+import co.edu.uniquindio.bookyourstay.util.ValidacionUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

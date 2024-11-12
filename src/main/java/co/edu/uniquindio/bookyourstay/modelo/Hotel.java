@@ -1,6 +1,6 @@
-package co.edu.uniquindio.bookyourstayco.modelo;
+package co.edu.uniquindio.bookyourstay.modelo;
 
-import co.edu.uniquindio.bookyourstayco.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import lombok.Data;
 
 import java.time.LocalDate;

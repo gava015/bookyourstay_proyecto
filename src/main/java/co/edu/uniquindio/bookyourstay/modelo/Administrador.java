@@ -1,4 +1,4 @@
-package co.edu.uniquindio.bookyourstayco.modelo;
+package co.edu.uniquindio.bookyourstay.modelo;
 
 
 public class Administrador extends Usuario{

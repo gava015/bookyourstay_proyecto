@@ -1,10 +1,10 @@
-package co.edu.uniquindio.bookyourstayco.controlador;
+package co.edu.uniquindio.bookyourstay.controlador;
 
-import co.edu.uniquindio.bookyourstayco.modelo.Administrador;
-import co.edu.uniquindio.bookyourstayco.modelo.Cliente;
-import co.edu.uniquindio.bookyourstayco.modelo.Sesion;
-import co.edu.uniquindio.bookyourstayco.modelo.Usuario;
-import co.edu.uniquindio.bookyourstayco.util.AlertaUtil;
+import co.edu.uniquindio.bookyourstay.modelo.Administrador;
+import co.edu.uniquindio.bookyourstay.modelo.Cliente;
+import co.edu.uniquindio.bookyourstay.modelo.Sesion;
+import co.edu.uniquindio.bookyourstay.modelo.Usuario;
+import co.edu.uniquindio.bookyourstay.util.AlertaUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

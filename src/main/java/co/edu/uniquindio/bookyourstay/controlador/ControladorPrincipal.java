@@ -1,11 +1,11 @@
-package co.edu.uniquindio.bookyourstayco.controlador;
+package co.edu.uniquindio.bookyourstay.controlador;
 
-import co.edu.uniquindio.bookyourstayco.modelo.ServicioReserva;
-import co.edu.uniquindio.bookyourstayco.modelo.Usuario;
-import co.edu.uniquindio.bookyourstayco.observador.Observador;
-import co.edu.uniquindio.bookyourstayco.observador.VentanaObservable;
-import co.edu.uniquindio.bookyourstayco.servicios.Gestion;
-import co.edu.uniquindio.bookyourstayco.servicios.GestionUsuario;
+import co.edu.uniquindio.bookyourstay.modelo.ServicioReserva;
+import co.edu.uniquindio.bookyourstay.modelo.Usuario;
+import co.edu.uniquindio.bookyourstay.observador.Observador;
+import co.edu.uniquindio.bookyourstay.observador.VentanaObservable;
+import co.edu.uniquindio.bookyourstay.servicios.Gestion;
+import co.edu.uniquindio.bookyourstay.servicios.GestionUsuario;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

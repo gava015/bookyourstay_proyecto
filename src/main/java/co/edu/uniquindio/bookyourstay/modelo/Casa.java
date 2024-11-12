@@ -1,7 +1,7 @@
-package co.edu.uniquindio.bookyourstayco.modelo;
+package co.edu.uniquindio.bookyourstay.modelo;
 
-import co.edu.uniquindio.bookyourstayco.enums.Servicio;
-import co.edu.uniquindio.bookyourstayco.util.FechaUtil;
+import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.util.FechaUtil;
 
 import java.time.LocalDate;
 import java.util.List;

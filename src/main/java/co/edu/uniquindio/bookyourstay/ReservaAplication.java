@@ -1,4 +1,4 @@
-package co.edu.uniquindio.bookyourstayco;
+package co.edu.uniquindio.bookyourstay;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package co.edu.uniquindio.bookyourstayco.util;
+package co.edu.uniquindio.bookyourstay.util;
 
 import java.time.LocalDate;
 import java.time.Period;

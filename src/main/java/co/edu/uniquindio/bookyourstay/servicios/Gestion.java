@@ -1,7 +1,5 @@
-package co.edu.uniquindio.bookyourstayco.servicios;
+package co.edu.uniquindio.bookyourstay.servicios;
 
-
-import java.util.List;
 
 public interface Gestion {
 

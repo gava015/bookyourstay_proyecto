@@ -1,4 +1,4 @@
-package co.edu.uniquindio.bookyourstayco.enums;
+package co.edu.uniquindio.bookyourstay.enums;
 
 public enum TipoAlojamiento {
     CASA,

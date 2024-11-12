@@ -1,7 +1,7 @@
-package co.edu.uniquindio.bookyourstayco.servicios;
+package co.edu.uniquindio.bookyourstay.servicios;
 
 
-import co.edu.uniquindio.bookyourstayco.modelo.Usuario;
+import co.edu.uniquindio.bookyourstay.modelo.Usuario;
 
 public interface GestionUsuario {
 

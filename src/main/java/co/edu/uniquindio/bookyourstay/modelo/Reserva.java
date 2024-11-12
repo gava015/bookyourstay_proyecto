@@ -1,6 +1,6 @@
-package co.edu.uniquindio.bookyourstayco.modelo;
+package co.edu.uniquindio.bookyourstay.modelo;
 
-import co.edu.uniquindio.bookyourstayco.enums.EstadoReserva;
+import co.edu.uniquindio.bookyourstay.enums.EstadoReserva;
 import lombok.Builder;
 import lombok.Data;
 
