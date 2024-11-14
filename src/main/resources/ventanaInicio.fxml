@@ -16,12 +16,12 @@
                 <Font name="System Bold" size="51.0" />
             </font>
         </Label>
-        <Button fx:id="btnIniciarSesion" layoutX="514.0" layoutY="28.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="148.0" text="Inicia sesión">
+        <Button fx:id="btnIniciarSesion" layoutX="514.0" layoutY="28.0" mnemonicParsing="false" onAction="#irIniciarSesion" prefHeight="38.0" prefWidth="148.0" text="Inicia sesión">
             <font>
                 <Font size="19.0" />
             </font>
         </Button>
-        <Button fx:id="btnRegistrarse" layoutX="681.0" layoutY="28.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="148.0" text="Registrate">
+        <Button fx:id="btnRegistrarse" layoutX="681.0" layoutY="28.0" mnemonicParsing="false" onAction="#irRegistroCliente" prefHeight="38.0" prefWidth="148.0" text="Registrate">
             <font>
                 <Font size="19.0" />
             </font>
@@ -29,15 +29,15 @@
         <ComboBox fx:id="cbTipoAlojamiento" layoutX="31.0" layoutY="143.0" prefHeight="31.0" prefWidth="210.0" promptText=" Tipo de alojamiento" />
         <TableView layoutX="31.0" layoutY="223.0" prefHeight="393.0" prefWidth="807.0">
             <columns>
-                <TableColumn prefWidth="142.0" text="Nombre" />
-                <TableColumn prefWidth="126.0" text="Cuidad" />
-                <TableColumn prefWidth="189.0" text="Descripción" />
-                <TableColumn prefWidth="188.0" text="Precio por noche" />
-                <TableColumn prefWidth="159.0" text="Capacidad" />
+                <TableColumn fx:id="colNombre" prefWidth="142.0" text="Nombre" />
+                <TableColumn fx:id="colCiudad" prefWidth="126.0" text="Cuidad" />
+                <TableColumn fx:id="colDescripcion" prefWidth="189.0" text="Descripción" />
+                <TableColumn fx:id="colPrecioNoche" prefWidth="188.0" text="Precio por noche" />
+                <TableColumn fx:id="colCapacidad" prefWidth="159.0" text="Capacidad" />
             </columns>
         </TableView>
         <Button fx:id="btnFiltrar" layoutX="514.0" layoutY="143.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" text="Filtrar" />
-        <ComboBox fx:id="cbTipoAlojamiento1" layoutX="263.0" layoutY="143.0" prefHeight="31.0" prefWidth="210.0" promptText="Ciudad" />
+        <ComboBox fx:id="cbCiudad" layoutX="263.0" layoutY="143.0" prefHeight="31.0" prefWidth="210.0" promptText="Ciudad" />
     </children>
     <effect>
         <DropShadow />

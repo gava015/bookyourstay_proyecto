@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="488.0" prefWidth="467.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PerfilCliente">
+    <children>
+        <Label layoutX="25.0" layoutY="14.0" text="Mi perfil" textFill="#28a15f">
+            <font>
+                <Font name="System Bold" size="43.0" />
+            </font>
+         <effect>
+            <Blend />
+         </effect>
+        </Label>
+        <Label layoutX="121.0" layoutY="68.0" text="BookYourStayCo" textFill="#29c463" />
+        <Label layoutX="106.0" layoutY="116.0" prefHeight="40.0" prefWidth="280.0" text="¿Qué deseas hacer?">
+            <font>
+                <Font name="System Bold" size="29.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnGestionarAlojamientos" layoutX="131.0" layoutY="183.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="218.0" text="Gestionar alojamientos">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnGestionarOfertas" layoutX="131.0" layoutY="254.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="218.0" text=" Gestionar Ofertas">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnCambiarContrasenia" layoutX="133.0" layoutY="398.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="218.0" text="Cambiar contraseña">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="btnReportes" layoutX="133.0" layoutY="326.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="218.0" text="Reportes">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+      <Label layoutX="339.0" layoutY="36.0" text="Administrador">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+    </children>
+    <effect>
+        <DropShadow />
+    </effect>
+</AnchorPane>

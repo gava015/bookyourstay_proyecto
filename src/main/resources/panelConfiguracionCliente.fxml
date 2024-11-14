@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.bookyourstay.controlador.RegistroClienteControlador">
+    <children>
+        <Label layoutX="117.0" layoutY="145.0" />
+        <TextField fx:id="txtIdentificacion" layoutX="54.0" layoutY="184.0" prefHeight="31.0" prefWidth="261.0" promptText="Identificacion">
+            <effect>
+                <Blend />
+            </effect>
+        </TextField>
+        <TextField fx:id="txtNombre" layoutX="54.0" layoutY="244.0" prefHeight="31.0" prefWidth="261.0" promptText="Nombre">
+            <effect>
+                <Blend />
+            </effect>
+        </TextField>
+        <TextField fx:id="txtTelefono" layoutX="54.0" layoutY="302.0" prefHeight="31.0" prefWidth="261.0" promptText="Telefono">
+            <effect>
+                <Blend />
+            </effect>
+        </TextField>
+        <TextField fx:id="txtCorreo" layoutX="54.0" layoutY="358.0" prefHeight="31.0" prefWidth="261.0" promptText="Correo">
+            <effect>
+                <Blend />
+            </effect>
+        </TextField>
+      <Button layoutX="56.0" layoutY="419.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" text="Editar" />
+      <Label layoutX="57.0" layoutY="26.0" text="Configuración y privacidad" textFill="#232240">
+         <font>
+            <Font name="Arial Bold" size="31.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <Button layoutX="513.0" layoutY="29.0" mnemonicParsing="false" text="Eliminar cuenta" />
+      <TextField fx:id="txtTelefono11" layoutX="409.0" layoutY="244.0" prefHeight="31.0" prefWidth="261.0" promptText="Código verificación">
+         <effect>
+            <Blend />
+         </effect>
+      </TextField>
+      <Label layoutX="57.0" layoutY="124.0" text="Editar datos">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="408.0" layoutY="124.0" text="Cambiar contraseña">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtTelefono111" layoutX="409.0" layoutY="302.0" prefHeight="31.0" prefWidth="261.0" promptText="Nueva contraseña">
+         <effect>
+            <Blend />
+         </effect>
+      </TextField>
+      <Button layoutX="409.0" layoutY="184.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="261.0" text="Solicitar código" />
+      <Button layoutX="409.0" layoutY="358.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" text="Guardar" />
+    </children>
+    <effect>
+        <DropShadow />
+    </effect>
+</AnchorPane>

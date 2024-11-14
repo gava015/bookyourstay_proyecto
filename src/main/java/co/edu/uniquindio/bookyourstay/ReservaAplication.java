@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class ReservaAplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(ReservaAplication.class.getResource("/ventanaLogin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ReservaAplication.class.getResource("/ventanaInicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login");
         stage.setScene(scene);

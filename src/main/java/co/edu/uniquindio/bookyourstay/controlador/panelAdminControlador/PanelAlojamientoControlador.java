@@ -6,6 +6,7 @@ import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
 import co.edu.uniquindio.bookyourstay.observador.Observador;
 import co.edu.uniquindio.bookyourstay.util.AlertaUtil;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,8 +41,6 @@ public class PanelAlojamientoControlador implements Initializable {
     @FXML
     private ComboBox<TipoAlojamiento> cbTipoAlojamiento;
 
-    @FXML
-    private TableView<Alojamiento> tablaAlojamientos;
 
     @FXML
     private TableColumn<Alojamiento,String> colNombre;
@@ -63,6 +62,9 @@ public class PanelAlojamientoControlador implements Initializable {
 
     @FXML
     private TableColumn<Alojamiento,String> colMantenimiento;
+
+    @FXML
+    private TableView<Alojamiento> tablaAlojamientos;
 
     private Observador observador;
 
@@ -105,6 +107,10 @@ public class PanelAlojamientoControlador implements Initializable {
         colCiudad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCuidad()));
         colDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
         colImagen.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUrlImagen()));
+
+        cbTipoAlojamiento.setItems(FXCollections.observableArrayList(TipoAlojamiento.values()));
+
+
         //colPrecio.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().get()));
         //colCapacidad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCapacidadMax()));
         //colMantenimiento.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCostoAseoMantenimiento()));

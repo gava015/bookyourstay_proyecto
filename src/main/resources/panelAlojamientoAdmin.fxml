@@ -57,5 +57,10 @@
       </Label>
       <ComboBox fx:id="cbTipoAlojamiento" layoutX="33.0" layoutY="138.0" prefHeight="31.0" prefWidth="254.0" promptText="Tipo alojamiento" />
       <ComboBox fx:id="cbCiudad" layoutX="33.0" layoutY="262.0" prefHeight="31.0" prefWidth="254.0" promptText="Ciudad" />
+      <Label layoutX="1166.0" layoutY="41.0" text="Administrador">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

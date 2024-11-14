@@ -1,35 +1,36 @@
-package co.edu.uniquindio.bookyourstay.controlador.panelAdminControlador;
+package co.edu.uniquindio.bookyourstay.controlador.panelClienteControlador;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 
-public class PanelAdminControlador {
+public class PanelInicioClienteControlador {
 
     @FXML
-    private StackPane panelPrincipal;
+    private AnchorPane panelPrincipal;
 
 
-    public void mostrarGestionAlojamiento(ActionEvent actionEvent) {
-        Parent node = cargarPanel("/panelAlojamiento.fxml");
-
-        panelPrincipal.getChildren().setAll(node);
-    }
-
-
-    public void mostrarGestionOferta(ActionEvent actionEvent) {
-        Parent node = cargarPanel("/panelOferta.fxml");
+    public void mostrarConfiguracion(ActionEvent actionEvent) {
+        Parent node = cargarPanel("/panelConfiguracionCliente.fxml");
 
         panelPrincipal.getChildren().setAll(node);
     }
 
 
-    public void mostrarReportes(ActionEvent actionEvent) {
+    public void mostrarGestionReserva(ActionEvent actionEvent) {
+        Parent node = cargarPanel("/panelReservaCliente.fxml");
 
-        Parent node = cargarPanel("/panelReporte.fxml");
+        panelPrincipal.getChildren().setAll(node);
+    }
+
+
+    public void mostrarRecargarBilletera(ActionEvent actionEvent) {
+
+        Parent node = cargarPanel("/panelBilleteraCliente.fxml");
 
         panelPrincipal.getChildren().setAll(node);
     }
@@ -39,8 +40,6 @@ public class PanelAdminControlador {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent node = loader.load();
-            //((AbstractControlador) loader.getController()).inicializarClinica(clinica);
-
 
             return node;
         } catch (Exception e) {

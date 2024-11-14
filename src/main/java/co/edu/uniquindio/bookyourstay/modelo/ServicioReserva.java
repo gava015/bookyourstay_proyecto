@@ -73,12 +73,32 @@ public class ServicioReserva implements GestionUsuario, Gestion {
                 .contrasenia(contrasenia)
                 .build();
 
-        listaUsuarios.add(cliente);
+        System.out.println(listaUsuarios.add(cliente));
         return cliente;
+    }
+
+    public Usuario crearAdministrador(String correo, String contrasenia, String identificacion, String nombre, String telefono) throws Exception {
+        Usuario usuarioBuscado = buscarUsuario(identificacion);
+        if (usuarioBuscado != null) {
+            throw new Exception("Ya existe un cliente registrado con la identificación: " + identificacion);
+        }
+
+        Usuario administrador = Administrador.builder()
+                .identificacion("123")
+                .nombre("valentina")
+                .correo("v@gmail.com")
+                .telefono("123")
+                .contrasenia("123")
+                .build();
+
+        System.out.println(listaUsuarios.add(administrador));
+        return administrador;
+
     }
 
 
     public boolean enviarCodigoVerificacion(String correo) throws Exception {
+
         for (Usuario usuario : listaUsuarios) {
             if (usuario.getCorreo().equalsIgnoreCase(correo)) {
                 String codigo = generarCodigoAleatorio();
@@ -106,7 +126,7 @@ public class ServicioReserva implements GestionUsuario, Gestion {
     }
 
 
-    public Usuario crearUsuario(String identificacion, String nombre, String telefono, String correo, String contrasenia) throws Exception {
+   /* public Usuario crearUsuario(String identificacion, String nombre, String telefono, String correo, String contrasenia) throws Exception {
         //TODO: Agregar validaciones
 
 
@@ -127,6 +147,8 @@ public class ServicioReserva implements GestionUsuario, Gestion {
         return cliente;
     }
 
+    */
+
     public Usuario buscarUsuario(String identificacion) {
         for (Usuario usuario : listaUsuarios) {
             if (identificacion.equals(usuario.getIdentificacion())) {
@@ -135,6 +157,8 @@ public class ServicioReserva implements GestionUsuario, Gestion {
         }
         return null;
     }
+
+
 
     public void eliminarUsuario(String usuarioId) throws Exception {
         Usuario usuario = buscarUsuario(usuarioId);
@@ -290,7 +314,7 @@ public class ServicioReserva implements GestionUsuario, Gestion {
                     120.000, 5, 50.000, new ArrayList<>());
 
 
-            Usuario usuario = servicioReserva.crearUsuario("1234", "Tefa", "7326132", "t@gmail.com", "123");
+            Usuario usuario = servicioReserva.registrarUsuario("1234", "Tefa", "7326132", "t@gmail.com", "123");
 
         } catch (Exception e) {
             throw new RuntimeException(e);

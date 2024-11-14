@@ -4,12 +4,14 @@ import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
 import co.edu.uniquindio.bookyourstay.modelo.ServicioReserva;
+import co.edu.uniquindio.bookyourstay.modelo.Sesion;
 import co.edu.uniquindio.bookyourstay.modelo.Usuario;
 import co.edu.uniquindio.bookyourstay.observador.Observador;
 import co.edu.uniquindio.bookyourstay.observador.VentanaObservable;
 import co.edu.uniquindio.bookyourstay.servicios.Gestion;
 import co.edu.uniquindio.bookyourstay.servicios.GestionUsuario;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -37,6 +39,21 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
     }
 
 
+    @Override
+    public Usuario ingresarUsuario(String correo, String contrasenia) throws Exception {
+        return servicioReserva.ingresarUsuario(correo, contrasenia);
+    }
+
+    @Override
+    public Usuario registrarUsuario(String identificacion, String nombre, String telefono, String correo, String contrasenia) throws Exception {
+        return servicioReserva.registrarUsuario(identificacion, nombre, telefono, correo, contrasenia);
+    }
+
+    @Override
+    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion, String urlImagen, double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) {
+
+        return null;
+    }
 
 
 
@@ -68,19 +85,13 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
         }
     }
 
-    @Override
-    public Usuario ingresarUsuario(String correo, String contrasenia) throws Exception {
-        return servicioReserva.ingresarUsuario(correo, contrasenia);
+    public void cerrarVentana(Node node) {
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
     }
 
-    @Override
-    public Usuario registrarUsuario(String identificacion, String nombre, String telefono, String correo, String contrasenia) throws Exception {
-        return servicioReserva.registrarUsuario(identificacion, nombre, telefono, correo, contrasenia);
-    }
-
-    @Override
-    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion, String urlImagen, double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) {
-
-        return null;
+    public void cerrarSesion(){
+        Sesion.getInstancia().cerrarSesion();
+        navegarVentana("/ventanaLogin.fxml", "Login", null );
     }
 }

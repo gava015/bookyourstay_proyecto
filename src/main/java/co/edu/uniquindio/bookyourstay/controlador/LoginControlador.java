@@ -25,7 +25,7 @@ public class LoginControlador {
         this.controladorPrincipal = ControladorPrincipal.getInstancia();
     }
 
-    public void ingresarUsuario(ActionEvent actionEvent) {
+    /*public void ingresarUsuario(ActionEvent actionEvent) {
         try {
             String correo = txtCorreo.getText();
             String contrasenia = txtContrasenia.getText();
@@ -34,9 +34,9 @@ public class LoginControlador {
             Sesion.getInstancia().setUsuario(usuario);
 
             if (usuario instanceof Administrador) {
-                controladorPrincipal.navegarVentana("/ventanaAdmin.fxml", "Panel Administrador", null);
+                controladorPrincipal.navegarVentana("/panelInicioAdministrador.fxml", "Panel Administrador", null);
             } else if (usuario instanceof Cliente) {
-                controladorPrincipal.navegarVentana("/ventanaUsuario.fxml", "Panel Usuario", null);
+                controladorPrincipal.navegarVentana("/panelInicioCliente.fxml", "Panel Usuario", null);
             } else {
                 AlertaUtil.mostrarAlerta("Tipo de usuario no reconocido", Alert.AlertType.ERROR);
                 return;
@@ -44,6 +44,32 @@ public class LoginControlador {
 
         } catch (Exception e) {
             AlertaUtil.mostrarAlerta("El usuario no existe o la contraseña es incorrecta", Alert.AlertType.ERROR);
+        }
+    }
+
+     */
+
+    public void ingresarUsuario(ActionEvent actionEvent) {
+
+        try {
+            String correo = txtCorreo.getText();
+            String contrasenia = txtContrasenia.getText();
+
+            Usuario usuario = controladorPrincipal.ingresarUsuario(correo,contrasenia);
+            Sesion.getInstancia().setUsuario(usuario);
+
+            if (usuario instanceof Cliente) {
+                controladorPrincipal.navegarVentana("/ventanaUsuario.fxml", "Panel Usuario", null);
+            } else {
+                if(usuario instanceof Administrador) {
+                    controladorPrincipal.navegarVentana("/ventanaAdmin.fxml", "Panel Administrador", null);
+                }
+            }
+
+            controladorPrincipal.cerrarVentana(txtCorreo);
+
+        } catch (Exception e) {
+            AlertaUtil.mostrarAlerta("El usuario no existe", Alert.AlertType.ERROR);
         }
     }
 }
