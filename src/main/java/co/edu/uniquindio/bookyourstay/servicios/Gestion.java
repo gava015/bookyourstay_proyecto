@@ -1,7 +1,19 @@
 package co.edu.uniquindio.bookyourstay.servicios;
 
 
+import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
+import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
+
+import java.util.List;
+
 public interface Gestion {
+
+
+
+    Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion, String urlImagen, double precioNoche,
+                                 int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) throws Exception;
+
 
 
 

@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="651.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.bookyourstay.controlador.InicioControlador">
     <children>
         <Label layoutX="32.0" layoutY="-2.0" prefHeight="86.0" prefWidth="350.0" text="BookYourStay" textFill="#374edd">
@@ -28,7 +27,7 @@
             </font>
         </Button>
         <ComboBox fx:id="cbTipoAlojamiento" layoutX="31.0" layoutY="143.0" prefHeight="31.0" prefWidth="210.0" promptText=" Tipo de alojamiento" />
-        <TableView layoutX="31.0" layoutY="223.0" prefHeight="393.0" prefWidth="802.0">
+        <TableView layoutX="31.0" layoutY="223.0" prefHeight="393.0" prefWidth="807.0">
             <columns>
                 <TableColumn prefWidth="142.0" text="Nombre" />
                 <TableColumn prefWidth="126.0" text="Cuidad" />

@@ -1,5 +1,8 @@
 package co.edu.uniquindio.bookyourstay.controlador;
 
+import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
+import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
 import co.edu.uniquindio.bookyourstay.modelo.ServicioReserva;
 import co.edu.uniquindio.bookyourstay.modelo.Usuario;
 import co.edu.uniquindio.bookyourstay.observador.Observador;
@@ -10,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 
 public class ControladorPrincipal implements GestionUsuario, Gestion {
@@ -30,6 +35,10 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
         }
         return INSTANCIA;
     }
+
+
+
+
 
     public void navegarVentana(String nombreArchivoFxml, String tituloVentana, Observador observador) {
         try {
@@ -67,5 +76,11 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
     @Override
     public Usuario registrarUsuario(String identificacion, String nombre, String telefono, String correo, String contrasenia) throws Exception {
         return servicioReserva.registrarUsuario(identificacion, nombre, telefono, correo, contrasenia);
+    }
+
+    @Override
+    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion, String urlImagen, double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) {
+
+        return null;
     }
 }

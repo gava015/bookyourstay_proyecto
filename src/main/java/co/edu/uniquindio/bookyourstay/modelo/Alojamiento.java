@@ -17,7 +17,9 @@ public abstract class  Alojamiento {
     protected int capacidadMax;
     protected Double costoAseoMantenimiento;
     protected List<Servicio> listaServicios;
+
     protected List<Oferta> listaOfertas;
+
     protected List<Reseña> listaReseñas;
 
     abstract double calcularValorTotal(LocalDate fechaInicio, LocalDate fechaFinal, int numeroHuespedes);

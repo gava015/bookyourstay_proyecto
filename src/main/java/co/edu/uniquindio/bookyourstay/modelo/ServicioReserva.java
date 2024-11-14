@@ -174,17 +174,18 @@ public class ServicioReserva implements GestionUsuario, Gestion {
     }
 
     public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion,
-                                        String urlImagen, double precioPorNoche, int capacidadMax,
+                                        String urlImagen, double precioNoche, int capacidadMax,
                                         Double costoAseoMantenimiento, List<Servicio> listaServicios) throws Exception {
 
         //TODO: Agregar validaciones
         Alojamiento alojamiento = factory.crearAlojamiento(
+
                 tipoAlojamiento,
                 nombre,
                 ciudad,
                 descripcion,
                 urlImagen,
-                precioPorNoche,
+                precioNoche,
                 capacidadMax,
                 costoAseoMantenimiento,
                 listaServicios);
@@ -289,10 +290,31 @@ public class ServicioReserva implements GestionUsuario, Gestion {
                     120.000, 5, 50.000, new ArrayList<>());
 
 
-            Usuario usuario = servicioReserva.crearUsuario("1234", "Stiven", "7326132", "s@gmail.com", "123");
+            Usuario usuario = servicioReserva.crearUsuario("1234", "Tefa", "7326132", "t@gmail.com", "123");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion, String urlImagen,
+                                        double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) throws Exception {
+        //TODO: Agregar validaciones
+        Alojamiento alojamiento = factory.crearAlojamiento(
+
+                tipoAlojamiento,
+                nombre,
+                ciudad,
+                descripcion,
+                urlImagen,
+                precioNoche,
+                capacidadMax,
+                costoMantenimiento,
+                listaServicios);
+
+        listaAlojamientos.add(alojamiento);
+        return alojamiento;
+    }
+
 }
