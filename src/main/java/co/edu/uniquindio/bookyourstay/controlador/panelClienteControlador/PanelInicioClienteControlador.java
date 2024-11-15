@@ -11,8 +11,7 @@ import javafx.scene.layout.StackPane;
 public class PanelInicioClienteControlador {
 
     @FXML
-    private AnchorPane panelPrincipal;
-
+    private StackPane panelPrincipal;
 
     public void mostrarConfiguracion(ActionEvent actionEvent) {
         Parent node = cargarPanel("/panelConfiguracionCliente.fxml");
@@ -20,13 +19,11 @@ public class PanelInicioClienteControlador {
         panelPrincipal.getChildren().setAll(node);
     }
 
-
     public void mostrarGestionReserva(ActionEvent actionEvent) {
         Parent node = cargarPanel("/panelReservaCliente.fxml");
 
         panelPrincipal.getChildren().setAll(node);
     }
-
 
     public void mostrarRecargarBilletera(ActionEvent actionEvent) {
 
@@ -34,7 +31,6 @@ public class PanelInicioClienteControlador {
 
         panelPrincipal.getChildren().setAll(node);
     }
-
 
     private Parent cargarPanel(String fxmlFile) {
         try {

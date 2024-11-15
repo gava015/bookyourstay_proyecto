@@ -14,12 +14,16 @@ import javafx.scene.control.TextField;
 public class LoginControlador {
 
     @FXML
+    public TextField txtCodigoActivacion;
+    @FXML
     private TextField txtCorreo;
 
     @FXML
     private TextField txtContrasenia;
 
     private final ControladorPrincipal controladorPrincipal;
+
+    private boolean mostrarActivacion;
 
     public LoginControlador() {
         this.controladorPrincipal = ControladorPrincipal.getInstancia();
@@ -59,17 +63,22 @@ public class LoginControlador {
             Sesion.getInstancia().setUsuario(usuario);
 
             if (usuario instanceof Cliente) {
-                controladorPrincipal.navegarVentana("/ventanaUsuario.fxml", "Panel Usuario", null);
+                controladorPrincipal.navegarVentana("/panelInicioCliente.fxml", "Panel Usuario", null);
             } else {
                 if(usuario instanceof Administrador) {
-                    controladorPrincipal.navegarVentana("/ventanaAdmin.fxml", "Panel Administrador", null);
+                    controladorPrincipal.navegarVentana("/panelInicioAdministrador.fxml", "Panel Administrador", null);
                 }
             }
 
             controladorPrincipal.cerrarVentana(txtCorreo);
 
         } catch (Exception e) {
-            AlertaUtil.mostrarAlerta("El usuario no existe", Alert.AlertType.ERROR);
+            AlertaUtil.mostrarAlerta(e.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    public void setMostrarActivacion(boolean mostrarActivacion) {
+        this.mostrarActivacion = mostrarActivacion;
+        txtCodigoActivacion.setVisible(mostrarActivacion);
     }
 }

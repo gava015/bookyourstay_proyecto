@@ -54,9 +54,9 @@ public class RegistroClienteControlador {
             controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
             controladorPrincipal.registrarUsuario(identificacion, nombre,telefono, correo, contrasenia);
 
-            //EnvioEmail.enviarNotificacion(correo, "Código de activación", "Tu código de activación es: " + codigoActivacion);
+            EnvioEmail.enviarNotificacion(correo, "Código de activación", "Tu código de activación es: " + codigoActivacion);
 
-            controladorPrincipal.navegarVentana("/ventanaLogin.fxml", "Panel login", null);
+            controladorPrincipal.navegarLogin("/ventanaLogin.fxml", "Panel login", true);
             AlertaUtil.mostrarAlerta("Usuario registrado con éxito", Alert.AlertType.INFORMATION);
 
         } catch (Exception ex) {

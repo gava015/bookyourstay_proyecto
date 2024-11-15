@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="744.0" prefWidth="1290.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PanelGestion">
+<AnchorPane prefHeight="744.0" prefWidth="1290.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.bookyourstay.controlador.panelAdminControlador.PanelAlojamientoControlador">
    <children>
       <Label layoutX="311.0" layoutY="14.0" prefHeight="74.0" prefWidth="547.0" text="Gestión de alojamientos" textFill="#4657d3">
          <font>

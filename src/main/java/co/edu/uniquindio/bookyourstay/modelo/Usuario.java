@@ -5,15 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario {
+public abstract class Usuario {
     protected String identificacion;
     protected String nombre;
     protected String telefono;
     protected String correo;
     protected String contrasenia;
+    protected boolean estado;
 }
 

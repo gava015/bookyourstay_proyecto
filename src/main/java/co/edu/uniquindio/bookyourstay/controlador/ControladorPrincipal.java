@@ -74,7 +74,7 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
             // Crear un nuevo escenario (ventana)
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setResizable(false);
+           // stage.setResizable(false);
             stage.setTitle(tituloVentana);
 
             // Mostrar la nueva ventana
@@ -85,6 +85,18 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
         }
     }
 
+    public Parent cargarPanel(String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent node = loader.load();
+
+            return node;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public void cerrarVentana(Node node) {
         Stage stage = (Stage) node.getScene().getWindow();
         stage.close();
@@ -93,5 +105,31 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
     public void cerrarSesion(){
         Sesion.getInstancia().cerrarSesion();
         navegarVentana("/ventanaLogin.fxml", "Login", null );
+    }
+
+    public void navegarLogin(String nombreVentana, String tituloVentana, boolean mostrarActivacion) {
+        try {
+            // Cargar la vista
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(nombreVentana));
+            Parent root = loader.load();
+
+            LoginControlador loginControlador = loader.getController();
+            loginControlador.setMostrarActivacion(mostrarActivacion);
+
+            // Crear la escena
+            Scene scene = new Scene(root);
+
+            // Crear un nuevo escenario (ventana)
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            // stage.setResizable(false);
+            stage.setTitle(tituloVentana);
+
+            // Mostrar la nueva ventana
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

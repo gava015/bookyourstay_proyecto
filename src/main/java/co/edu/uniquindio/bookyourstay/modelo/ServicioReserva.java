@@ -5,6 +5,7 @@ import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import co.edu.uniquindio.bookyourstay.factory.AlojamientoFactory;
 import co.edu.uniquindio.bookyourstay.servicios.Gestion;
 import co.edu.uniquindio.bookyourstay.servicios.GestionUsuario;
+import co.edu.uniquindio.bookyourstay.util.EnvioEmail;
 import co.edu.uniquindio.bookyourstay.util.ValidacionUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,6 +38,17 @@ public class ServicioReserva implements GestionUsuario, Gestion {
         listaAlojamientos = new ArrayList<>();
         listaOfertas = new ArrayList<>();
         listaUsuarios = new ArrayList<>();
+        crearDatosPrueba();
+        System.out.println(listaUsuarios);
+    }
+
+    public void crearDatosPrueba(){
+        try {
+            registrarUsuario("123", "usuario", "1212", "usuario@email.com", "1111111");
+            crearAdministrador("admin@email.com", "1111111", "1212", "Admin", "5676");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -49,7 +61,8 @@ public class ServicioReserva implements GestionUsuario, Gestion {
                 return usuario;
             }
         }
-        return null;
+
+        throw new Exception("Datos de acceso incorrectos");
     }
 
     @Override
@@ -65,15 +78,16 @@ public class ServicioReserva implements GestionUsuario, Gestion {
             throw new Exception("Ya existe un cliente registrado con la identificación: " + identificacion);
         }
 
-        Usuario cliente = Usuario.builder()
+        Cliente cliente = Cliente.builder()
                 .identificacion(identificacion)
                 .nombre(nombre)
                 .correo(correo)
                 .telefono(telefono)
                 .contrasenia(contrasenia)
+                .estado(false)
                 .build();
 
-        System.out.println(listaUsuarios.add(cliente));
+        listaUsuarios.add(cliente);
         return cliente;
     }
 
@@ -83,15 +97,15 @@ public class ServicioReserva implements GestionUsuario, Gestion {
             throw new Exception("Ya existe un cliente registrado con la identificación: " + identificacion);
         }
 
-        Usuario administrador = Administrador.builder()
-                .identificacion("123")
-                .nombre("valentina")
-                .correo("v@gmail.com")
-                .telefono("123")
-                .contrasenia("123")
+        Administrador administrador = Administrador.builder()
+                .identificacion(identificacion)
+                .nombre(nombre)
+                .correo(correo)
+                .telefono(telefono)
+                .contrasenia(contrasenia)
                 .build();
 
-        System.out.println(listaUsuarios.add(administrador));
+        listaUsuarios.add(administrador);
         return administrador;
 
     }
@@ -104,7 +118,7 @@ public class ServicioReserva implements GestionUsuario, Gestion {
                 String codigo = generarCodigoAleatorio();
                 String mensaje = "Su código de verificación es: " + codigo;
                 try {
-                    //EnvioEmail.enviarNotificacion(correo, "Código de Verificación", mensaje);
+                    EnvioEmail.enviarNotificacion(correo, "Código de Verificación", mensaje);
                 } catch (Exception e) {
                     throw new Exception("Error al enviar el correo de verificación: " + e.getMessage(), e);
                 }

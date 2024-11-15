@@ -45,7 +45,7 @@ public class InicioControlador implements Initializable {
 
     public void irIniciarSesion(ActionEvent actionEvent) {
         controladorPrincipal.cerrarVentana((Node) actionEvent.getSource());
-        controladorPrincipal.navegarVentana("/ventanaLogin.fxml","Iniciar Sesión", null);
+        controladorPrincipal.navegarLogin("/ventanaLogin.fxml", "Panel login", false);
     }
 
     public void irRegistroCliente(ActionEvent actionEvent) {

@@ -7,8 +7,14 @@ module co.edu.uniquindio.bookyourstay {
 
     opens co.edu.uniquindio.bookyourstay to javafx.fxml;
     exports co.edu.uniquindio.bookyourstay;
+
     exports co.edu.uniquindio.bookyourstay.controlador;
     opens co.edu.uniquindio.bookyourstay.controlador to javafx.fxml;
+
     exports co.edu.uniquindio.bookyourstay.controlador.panelAdminControlador;
     opens co.edu.uniquindio.bookyourstay.controlador.panelAdminControlador to javafx.fxml;
+
+    opens co.edu.uniquindio.bookyourstay.controlador.panelClienteControlador to javafx.fxml;
+    exports co.edu.uniquindio.bookyourstay.controlador.panelClienteControlador;
+
 }
