@@ -1,6 +1,7 @@
 package co.edu.uniquindio.bookyourstay.modelo;
 
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import co.edu.uniquindio.bookyourstay.util.FechaUtil;
 
 import java.time.LocalDate;
@@ -25,5 +26,10 @@ public class Casa extends Alojamiento {
     double calcularValorTotal(LocalDate fechaInicio, LocalDate fechaFinal, int numeroHuespedes) {
         int diasReserva = FechaUtil.obtenerDiferenciaEnDias(fechaInicio, fechaFinal);
         return (precioPorNoche * numeroHuespedes * diasReserva) + costoAseoMantenimiento;
+    }
+
+    @Override
+    public TipoAlojamiento obtenerTipoAlojamiento() {
+        return TipoAlojamiento.CASA;
     }
 }

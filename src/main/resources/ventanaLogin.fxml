@@ -18,15 +18,15 @@
          </effect></TextField>
         <TextField fx:id="txtContrasenia" layoutX="74.0" layoutY="128.0" prefHeight="45.0" prefWidth="230.0" promptText="Contraseña" />
 
-        <TextField fx:id="txtCodigoActivacion" layoutX="74.0" layoutY="178.0" prefHeight="45.0" prefWidth="230.0" promptText="Codigo de activacion" />
+        <TextField fx:id="txtCodigoActivacion" layoutX="74.0" layoutY="199.0" prefHeight="45.0" prefWidth="230.0" promptText="Codigo de activacion" />
 
 
-        <Button fx:id="btnIniciarSesion" layoutX="117.0" layoutY="207.0" mnemonicParsing="false" onAction="#ingresarUsuario" prefHeight="31.0" prefWidth="139.0" text="Iniciar sesión">
+        <Button fx:id="btnIniciarSesion" layoutX="120.0" layoutY="269.0" mnemonicParsing="false" onAction="#ingresarUsuario" prefHeight="31.0" prefWidth="139.0" text="Iniciar sesión">
             <effect>
                 <Blend />
             </effect>
         </Button>
-        <Label layoutX="113.0" layoutY="289.0" text="¿Olvidó su contraseña?" />
-        <Button fx:id="btnGenerarCodigo" layoutX="120.0" layoutY="321.0" mnemonicParsing="false" text="Nueva contraseña" />
+        <Label layoutX="113.0" layoutY="324.0" text="¿Olvidó su contraseña?" />
+        <Button fx:id="btnGenerarCodigo" layoutX="117.0" layoutY="354.0" mnemonicParsing="false" text="Nueva contraseña" />
     </children>
 </AnchorPane>

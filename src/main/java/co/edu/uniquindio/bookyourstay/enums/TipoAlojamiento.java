@@ -5,7 +5,6 @@ public enum TipoAlojamiento {
     APARTAMENTO,
     HOTEL;
 
-
     @Override
     public String toString() {
         switch (this) {

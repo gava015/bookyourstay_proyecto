@@ -1,5 +1,6 @@
 package co.edu.uniquindio.bookyourstay.controlador;
 
+import co.edu.uniquindio.bookyourstay.enums.Ciudad;
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
@@ -8,7 +9,7 @@ import co.edu.uniquindio.bookyourstay.modelo.Sesion;
 import co.edu.uniquindio.bookyourstay.modelo.Usuario;
 import co.edu.uniquindio.bookyourstay.observador.Observador;
 import co.edu.uniquindio.bookyourstay.observador.VentanaObservable;
-import co.edu.uniquindio.bookyourstay.servicios.Gestion;
+import co.edu.uniquindio.bookyourstay.servicios.GestionReserva;
 import co.edu.uniquindio.bookyourstay.servicios.GestionUsuario;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,7 +20,7 @@ import javafx.stage.Stage;
 import java.util.List;
 
 
-public class ControladorPrincipal implements GestionUsuario, Gestion {
+public class ControladorPrincipal implements GestionUsuario, GestionReserva {
 
     private static ControladorPrincipal INSTANCIA;
 
@@ -38,7 +39,6 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
         return INSTANCIA;
     }
 
-
     @Override
     public Usuario ingresarUsuario(String correo, String contrasenia) throws Exception {
         return servicioReserva.ingresarUsuario(correo, contrasenia);
@@ -50,12 +50,14 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
     }
 
     @Override
-    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion, String urlImagen, double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) {
-
-        return null;
+    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, Ciudad ciudad, String descripcion, String urlImagen,
+                                        double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) throws Exception {
+        return servicioReserva.crearAlojamiento(tipoAlojamiento, nombre, ciudad, descripcion, urlImagen, precioNoche, capacidadMax, costoMantenimiento, listaServicios);
     }
 
-
+    public List<Alojamiento> obtenerListaAlojamientos() {
+        return servicioReserva.getListaAlojamientos();
+    }
 
     public void navegarVentana(String nombreArchivoFxml, String tituloVentana, Observador observador) {
         try {
@@ -74,7 +76,7 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
             // Crear un nuevo escenario (ventana)
             Stage stage = new Stage();
             stage.setScene(scene);
-           // stage.setResizable(false);
+            // stage.setResizable(false);
             stage.setTitle(tituloVentana);
 
             // Mostrar la nueva ventana
@@ -102,9 +104,9 @@ public class ControladorPrincipal implements GestionUsuario, Gestion {
         stage.close();
     }
 
-    public void cerrarSesion(){
+    public void cerrarSesion() {
         Sesion.getInstancia().cerrarSesion();
-        navegarVentana("/ventanaLogin.fxml", "Login", null );
+        navegarVentana("/ventanaLogin.fxml", "Login", null);
     }
 
     public void navegarLogin(String nombreVentana, String tituloVentana, boolean mostrarActivacion) {

@@ -3,7 +3,6 @@ package co.edu.uniquindio.bookyourstay.controlador.panelAdminControlador;
 import co.edu.uniquindio.bookyourstay.controlador.ControladorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 

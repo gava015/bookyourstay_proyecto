@@ -1,6 +1,7 @@
 package co.edu.uniquindio.bookyourstay.modelo;
 
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -23,4 +24,6 @@ public abstract class  Alojamiento {
     protected List<Reseña> listaReseñas;
 
     abstract double calcularValorTotal(LocalDate fechaInicio, LocalDate fechaFinal, int numeroHuespedes);
+
+    public abstract TipoAlojamiento obtenerTipoAlojamiento();
 }

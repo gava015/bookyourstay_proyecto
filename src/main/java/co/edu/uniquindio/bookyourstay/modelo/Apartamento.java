@@ -1,6 +1,7 @@
 package co.edu.uniquindio.bookyourstay.modelo;
 
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
+import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,6 +24,11 @@ public class Apartamento extends Alojamiento {
     @Override
     double calcularValorTotal(LocalDate fechaInicio, LocalDate fechaFinal, int numeroHuespedes) {
         return 0;
+    }
+
+    @Override
+    public TipoAlojamiento obtenerTipoAlojamiento() {
+        return TipoAlojamiento.APARTAMENTO;
     }
 }
 

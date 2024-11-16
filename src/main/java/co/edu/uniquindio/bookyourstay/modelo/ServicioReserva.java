@@ -1,9 +1,10 @@
 package co.edu.uniquindio.bookyourstay.modelo;
 
+import co.edu.uniquindio.bookyourstay.enums.Ciudad;
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import co.edu.uniquindio.bookyourstay.factory.AlojamientoFactory;
-import co.edu.uniquindio.bookyourstay.servicios.Gestion;
+import co.edu.uniquindio.bookyourstay.servicios.GestionReserva;
 import co.edu.uniquindio.bookyourstay.servicios.GestionUsuario;
 import co.edu.uniquindio.bookyourstay.util.EnvioEmail;
 import co.edu.uniquindio.bookyourstay.util.ValidacionUtil;
@@ -19,7 +20,7 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-public class ServicioReserva implements GestionUsuario, Gestion {
+public class ServicioReserva implements GestionUsuario, GestionReserva {
 
     private AlojamientoFactory factory;
 
@@ -38,17 +39,9 @@ public class ServicioReserva implements GestionUsuario, Gestion {
         listaAlojamientos = new ArrayList<>();
         listaOfertas = new ArrayList<>();
         listaUsuarios = new ArrayList<>();
+
         crearDatosPrueba();
         System.out.println(listaUsuarios);
-    }
-
-    public void crearDatosPrueba(){
-        try {
-            registrarUsuario("123", "usuario", "1212", "usuario@email.com", "1111111");
-            crearAdministrador("admin@email.com", "1111111", "1212", "Admin", "5676");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -138,30 +131,6 @@ public class ServicioReserva implements GestionUsuario, Gestion {
         int codigo = 100000 + random.nextInt(900000);
         return String.valueOf(codigo);
     }
-
-
-   /* public Usuario crearUsuario(String identificacion, String nombre, String telefono, String correo, String contrasenia) throws Exception {
-        //TODO: Agregar validaciones
-
-
-        Usuario usuarioBuscado = buscarUsuario(identificacion);
-        if (usuarioBuscado != null) {
-            throw new Exception("Ya existe un cliente registrado con la identificacion: " + identificacion);
-        }
-
-        Usuario cliente = Usuario.builder()
-                .identificacion(identificacion)
-                .nombre(nombre)
-                .correo(correo)
-                .telefono(telefono)
-                .contrasenia(contrasenia)
-                .build();
-
-        listaUsuarios.add(cliente);
-        return cliente;
-    }
-
-    */
 
     public Usuario buscarUsuario(String identificacion) {
         for (Usuario usuario : listaUsuarios) {
@@ -336,14 +305,13 @@ public class ServicioReserva implements GestionUsuario, Gestion {
     }
 
     @Override
-    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion, String urlImagen,
+    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, Ciudad ciudad, String descripcion, String urlImagen,
                                         double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) throws Exception {
         //TODO: Agregar validaciones
         Alojamiento alojamiento = factory.crearAlojamiento(
-
                 tipoAlojamiento,
                 nombre,
-                ciudad,
+                ciudad.getNombre(),
                 descripcion,
                 urlImagen,
                 precioNoche,
@@ -352,7 +320,19 @@ public class ServicioReserva implements GestionUsuario, Gestion {
                 listaServicios);
 
         listaAlojamientos.add(alojamiento);
+        System.out.println(listaAlojamientos);
         return alojamiento;
     }
+
+
+    public void crearDatosPrueba(){
+        try {
+            registrarUsuario("123", "usuario", "1212", "usuario@gmail.com", "1111111");
+            crearAdministrador("admin@gmail.com", "123", "1212", "Admin", "5676");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 }

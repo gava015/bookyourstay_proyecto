@@ -7,7 +7,7 @@ public class Administrador extends Usuario{
 
     @Builder
 
-    public Administrador(String identificacion, String nombre, String telefono, String correo, String contrasenia) {
-        super(identificacion, nombre, telefono, correo, contrasenia);
+    public Administrador(String identificacion, String nombre, String telefono, String correo, String contrasenia,boolean estado) {
+        super(identificacion, nombre, telefono, correo, contrasenia,estado);
     }
 }
