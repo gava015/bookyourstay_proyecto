@@ -6,9 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 
-
 public class PanelInicioControlador {
-
     @FXML
     private StackPane panelPrincipal;
     private ControladorPrincipal controladorPrincipal;

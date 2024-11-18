@@ -1,5 +1,6 @@
 package co.edu.uniquindio.bookyourstay.modelo;
 
+import co.edu.uniquindio.bookyourstay.enums.Ciudad;
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import lombok.Data;
@@ -7,14 +8,13 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 public class Hotel extends Alojamiento {
 
     private List<Habitacion> listaHabitaciones;
 
-    public Hotel(String id, String nombre, String ciudad, String descripcion, String urlImagen, double precioPorNoche,
+    public Hotel(String id, String nombre, Ciudad ciudad, String descripcion, String urlImagen, double precioPorNoche,
                  int capacidadMax, Double costoAseoMantenimiento, List<Servicio> listaServicios) {
         this.id = id;
         this.nombre = nombre;
@@ -28,20 +28,6 @@ public class Hotel extends Alojamiento {
         listaHabitaciones = new ArrayList<>();
     }
 
-    public Habitacion crearHabitacion(String numero, Double precio, int capacidad, String urlImagen, String descripcion) {
-        Habitacion habitacion = Habitacion.builder()
-                .id(UUID.randomUUID().toString())
-                .numero(numero)
-                .precio(precio)
-                .capacidad(capacidad)
-                .urlImagen(urlImagen)
-                .descripcion(descripcion)
-                .build();
-
-        listaHabitaciones.add(habitacion);
-        return habitacion;
-    }
-
     @Override
     double calcularValorTotal(LocalDate fechaInicio, LocalDate fechaFinal, int numeroHuespedes) {
         return 0;
@@ -50,5 +36,28 @@ public class Hotel extends Alojamiento {
     @Override
     public TipoAlojamiento obtenerTipoAlojamiento() {
         return TipoAlojamiento.HOTEL;
+    }
+
+    public Habitacion crearHabitacion(String habitacionId, String numeroHabitacion, String precioPorNoche, String capacidad, String urlImagen, String descripcion) {
+        Habitacion habitacion = Habitacion.builder()
+                .id(habitacionId)
+                .numero(numeroHabitacion)
+                .precio(Double.parseDouble(precioPorNoche))
+                .capacidad(Integer.parseInt(capacidad))
+                .urlImagen(urlImagen)
+                .descripcion(descripcion)
+                .build();
+
+        listaHabitaciones.add(habitacion);
+        return habitacion;
+    }
+
+    public Habitacion buscarHabitacion(String habitacionId) {
+        for (Habitacion habitacion : getListaHabitaciones()) {
+            if (habitacion.getId().equals(habitacionId)) {
+                return habitacion;
+            }
+        }
+        return null;
     }
 }

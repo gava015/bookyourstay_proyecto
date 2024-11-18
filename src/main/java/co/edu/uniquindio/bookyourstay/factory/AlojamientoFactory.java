@@ -1,22 +1,22 @@
 package co.edu.uniquindio.bookyourstay.factory;
 
+import co.edu.uniquindio.bookyourstay.enums.Ciudad;
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
 import co.edu.uniquindio.bookyourstay.modelo.Apartamento;
 import co.edu.uniquindio.bookyourstay.modelo.Casa;
 import co.edu.uniquindio.bookyourstay.modelo.Hotel;
+import co.edu.uniquindio.bookyourstay.servicios.Fabricante;
 
 import java.util.List;
-import java.util.UUID;
 
-public class AlojamientoFactory {
+public class AlojamientoFactory implements Fabricante {
 
-    public Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, String ciudad, String descripcion,
-                                        String urlImagen, double precioPorNoche, int capacidadMax,
-                                        Double costoAseoMantenimiento, List<Servicio> listaServicios) throws Exception {
-
-        String id = UUID.randomUUID().toString();
+    @Override
+    public Alojamiento crearAlojamiento(String id, TipoAlojamiento tipoAlojamiento, String nombre, Ciudad ciudad, String descripcion,
+                                        String urlImagen, double precioPorNoche, int capacidadMax, Double costoAseoMantenimiento,
+                                        List<Servicio> listaServicios) throws Exception {
         switch (tipoAlojamiento) {
             case CASA:
                 return new Casa(id, nombre, ciudad, descripcion, urlImagen, precioPorNoche, capacidadMax, costoAseoMantenimiento, listaServicios);

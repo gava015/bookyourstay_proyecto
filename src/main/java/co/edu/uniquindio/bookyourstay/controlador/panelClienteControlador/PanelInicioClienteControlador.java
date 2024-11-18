@@ -14,20 +14,21 @@ public class PanelInicioClienteControlador {
 
     public void mostrarConfiguracion(ActionEvent actionEvent) {
         Parent node = cargarPanel("/panelConfiguracionCliente.fxml");
-
         panelPrincipal.getChildren().setAll(node);
     }
 
     public void mostrarGestionReserva(ActionEvent actionEvent) {
-        Parent node = cargarPanel("/panelReservaCliente.fxml");
+       Parent node = cargarPanel("/panelGestionReserva.fxml");
+       panelPrincipal.getChildren().setAll(node);
+    }
 
+    public void mostrarCrearReserva(ActionEvent actionEvent) {
+        Parent node = cargarPanel("/panelReservaCliente.fxml");
         panelPrincipal.getChildren().setAll(node);
     }
 
     public void mostrarRecargarBilletera(ActionEvent actionEvent) {
-
         Parent node = cargarPanel("/panelBilleteraCliente.fxml");
-
         panelPrincipal.getChildren().setAll(node);
     }
 

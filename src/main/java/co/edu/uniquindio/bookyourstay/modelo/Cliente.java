@@ -9,8 +9,9 @@ public class Cliente extends Usuario {
     private BilleteraVirtual billeteraVirtual;
 
     @Builder
-    public Cliente(String identificacion, String nombre, String telefono, String correo, String contrasenia, boolean estado) {
-        super(identificacion, nombre, telefono, correo, contrasenia, estado);
+    public Cliente(String identificacion, String nombre, String telefono, String correo, String contrasenia, boolean estado,
+                   String codigoConfirmacionCuenta) {
+        super(identificacion, nombre, telefono, correo, contrasenia, estado, codigoConfirmacionCuenta);
         billeteraVirtual = new BilleteraVirtual(0);
     }
 }

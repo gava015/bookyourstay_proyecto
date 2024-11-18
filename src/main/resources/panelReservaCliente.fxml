@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="PanelReservaCliente"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="644.0" prefWidth="1157.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.bookyourstay.controlador.panelClienteControlador.PanelReservaControlador">
+   <children>
+      <TableView fx:id="tablaAlojamientos" layoutX="211.0" layoutY="145.0" prefHeight="462.0" prefWidth="910.0">
+         <columns>
+            <TableColumn fx:id="colNombre" prefWidth="93.0" text="Nombre" />
+            <TableColumn fx:id="colCiudad" prefWidth="89.0" text="Ciudad" />
+            <TableColumn fx:id="colDescripcion" prefWidth="110.0" text="Descripción" />
+            <TableColumn fx:id="colImagen" prefWidth="73.0" text="Imagen" />
+            <TableColumn fx:id="colPrecio" prefWidth="83.0" text="Precio" />
+            <TableColumn fx:id="colCapacidad" prefWidth="89.0" text="Capacidad" />
+            <TableColumn fx:id="colMantenimiento" prefWidth="130.0" text="Mantenimiento" />
+            <TableColumn fx:id="colAlojamiento" prefWidth="127.0" text="Tipo alojamiento" />
+            <TableColumn fx:id="colServicios" prefWidth="115.0" text="Servicios" />
+         </columns>
+      </TableView>
+      <DatePicker fx:id="dpFechaInicio" layoutY="145.0" prefHeight="41.0" prefWidth="186.0" promptText="Fecha inicio" />
+      <DatePicker fx:id="dpFechaFin" layoutY="211.0" prefHeight="41.0" prefWidth="186.0" promptText="Fecha fin" />
+      <TextField fx:id="txtCantidadHuespedes" layoutX="-4.0" layoutY="274.0" prefHeight="31.0" prefWidth="193.0" promptText="Cantidad huespedes" />
+      <Button fx:id="btnCrearReserva" layoutX="70.0" layoutY="322.0" mnemonicParsing="false" onAction="#crearReserva" prefHeight="31.0" prefWidth="119.0" text="Crear reserva" />
+      <Label layoutX="509.0" layoutY="14.0" text="Reserva" textFill="#274dd7">
+         <font>
+            <Font name="System Bold" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="638.0" layoutY="84.0" text="BookYourStayCo" textFill="#3358dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageViewQR" fitHeight="150.0" fitWidth="200.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
 </AnchorPane>

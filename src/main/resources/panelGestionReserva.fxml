@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="654.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.bookyourstay.controlador.panelClienteControlador.PanelGestionReservaControlador">
+   <children>
+      <TableView fx:id="tablaReservas" layoutX="40.0" layoutY="203.0" prefHeight="403.0" prefWidth="627.0">
+        <columns>
+          <TableColumn fx:id="colAlojamiento" prefWidth="120.0" text="Alojamiento" />
+          <TableColumn fx:id="colCiudad" prefWidth="102.0" text="Ciudad" />
+            <TableColumn fx:id="colPrecio" prefWidth="95.0" text="Precio" />
+            <TableColumn fx:id="colFechaInicio" prefWidth="137.0" text="Fecha inicio" />
+            <TableColumn fx:id="colFechaFin" prefWidth="146.0" text="Fecha final" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnCancelar" layoutX="40.0" layoutY="162.0" mnemonicParsing="false" onAction="#cancelarReserva" prefHeight="31.0" prefWidth="145.0" text="Cancelar reserva" />
+      <Button fx:id="btnValorar" layoutX="195.0" layoutY="162.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="145.0" text="Valorar" />
+      <Label layoutX="181.0" layoutY="26.0" text="Mis reservas" textFill="#3735d7">
+         <font>
+            <Font name="System Bold" size="55.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

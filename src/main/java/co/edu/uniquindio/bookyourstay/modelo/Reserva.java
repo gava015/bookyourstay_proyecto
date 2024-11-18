@@ -17,8 +17,4 @@ public class Reserva {
     private int numeroHuespedes;
     private double costoReserva;
     private EstadoReserva estado;
-
-    public void calcularCostoReserva() {
-        this.costoReserva = alojamiento.calcularValorTotal(fechaInicio, fechaFinal, numeroHuespedes);;
-    }
 }

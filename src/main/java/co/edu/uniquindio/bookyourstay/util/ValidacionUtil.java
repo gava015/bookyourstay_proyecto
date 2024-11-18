@@ -19,7 +19,6 @@ public class ValidacionUtil {
     public static void validarTelefono(String telefono) throws Exception {
         if (!Pattern.matches("[0-9]*", telefono)) {
             throw new Exception("El teléfono no es válido");
-
         }
     }
 }

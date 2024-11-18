@@ -18,48 +18,37 @@
             <Font name="System Bold" size="46.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNombre" layoutY="197.0" prefHeight="31.0" prefWidth="207.0" promptText="Nombre" />
-      <TextField fx:id="txtPrecio" layoutY="464.0" prefHeight="31.0" prefWidth="207.0" promptText="Precio ($)" />
-      <TextField fx:id="txtCapacidad" layoutX="-3.0" layoutY="519.0" prefHeight="31.0" prefWidth="207.0" promptText="# Capacidad" />
-      <TextField fx:id="txtImagen" layoutY="409.0" prefHeight="31.0" prefWidth="207.0" promptText="Link imagen" />
-      <TextField fx:id="txtMantenimiento" layoutY="579.0" prefHeight="31.0" prefWidth="207.0" promptText="Costo mantenimiento ($)" />
-      <TextArea fx:id="txtDescripcion" layoutY="310.0" prefHeight="74.0" prefWidth="207.0" promptText="Descripción" />
-      <TableView fx:id="tablaAlojamientos" layoutX="220.0" layoutY="142.0" prefHeight="460.0" prefWidth="900.0">
+      <TextField fx:id="txtNombre" layoutY="197.0" prefHeight="31.0" prefWidth="175.0" promptText="Nombre" />
+      <TextField fx:id="txtPrecio" layoutY="464.0" prefHeight="31.0" prefWidth="175.0" promptText="Precio ($)" />
+      <TextField fx:id="txtCapacidad" layoutX="-3.0" layoutY="519.0" prefHeight="31.0" prefWidth="175.0" promptText="# Capacidad" />
+      <TextField fx:id="txtImagen" layoutY="409.0" prefHeight="31.0" prefWidth="175.0" promptText="Link imagen" />
+      <TextField fx:id="txtMantenimiento" layoutY="579.0" prefHeight="31.0" prefWidth="175.0" promptText="Costo mantenimiento ($)" />
+      <TextArea fx:id="txtDescripcion" layoutY="310.0" prefHeight="74.0" prefWidth="175.0" promptText="Descripción" />
+      <TableView fx:id="tablaAlojamientos" layoutX="199.0" layoutY="142.0" prefHeight="462.0" prefWidth="910.0">
         <columns>
           <TableColumn fx:id="colNombre" prefWidth="93.0" text="Nombre" />
-          <TableColumn fx:id="colCiudad" prefWidth="89.0" text="Cuidad" />
+          <TableColumn fx:id="colCiudad" prefWidth="89.0" text="Ciudad" />
             <TableColumn fx:id="colDescripcion" prefWidth="110.0" text="Descripción" />
             <TableColumn fx:id="colImagen" prefWidth="73.0" text="Imagen" />
             <TableColumn fx:id="colPrecio" prefWidth="83.0" text="Precio" />
             <TableColumn fx:id="colCapacidad" prefWidth="89.0" text="Capacidad" />
             <TableColumn fx:id="colMantenimiento" prefWidth="130.0" text="Mantenimiento" />
             <TableColumn fx:id="colAlojamiento" prefWidth="127.0" text="Tipo alojamiento" />
-            <TableColumn fx:id="colServicios" prefWidth="116.0" text="Servicios" />
+            <TableColumn fx:id="colServicios" prefWidth="115.0" text="Servicios" />
         </columns>
       </TableView>
-      <Button fx:id="btnCrearAlojamiento" layoutX="220.0" layoutY="653.0" mnemonicParsing="false" onAction="#crearAlojamiento" prefHeight="43.0" prefWidth="123.0" text="Crear">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnEditar" layoutX="371.0" layoutY="653.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="123.0" text="Editar">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnEliminar" layoutX="997.0" layoutY="653.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="123.0" text="Eliminar">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
+      <Button fx:id="btnCrearAlojamiento" layoutX="199.0" layoutY="617.0" mnemonicParsing="false" onAction="#crearAlojamiento" prefHeight="31.0" prefWidth="86.0" text="Crear" />
+      <Button fx:id="btnEditar" layoutX="309.0" layoutY="617.0" mnemonicParsing="false" onAction="#modificarAlojamiento" prefHeight="31.0" prefWidth="86.0" text="Editar" />
+      <Button fx:id="btnEliminar" layoutX="420.0" layoutY="617.0" mnemonicParsing="false" onAction="#eliminarAlojamiento" prefHeight="31.0" prefWidth="86.0" text="Eliminar" />
       <Label layoutX="720.0" layoutY="61.0" text="BookYourStayCo" textFill="#3358dd">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cbTipoAlojamiento" layoutY="142.0" prefHeight="31.0" prefWidth="207.0" promptText="Tipo alojamiento" />
-      <ComboBox fx:id="cbCiudad" layoutY="254.0" prefHeight="31.0" prefWidth="207.0" promptText="Ciudad" />
+      <ComboBox fx:id="cbTipoAlojamiento" layoutY="142.0" prefHeight="31.0" prefWidth="175.0" promptText="Tipo alojamiento" />
+      <ComboBox fx:id="cbCiudad" layoutY="254.0" prefHeight="31.0" prefWidth="175.0" promptText="Ciudad" />
       <Label layoutX="6.0" layoutY="626.0" prefHeight="21.0" prefWidth="74.0" text="Servicios" />
-      <ListView fx:id="listViewServicios" layoutY="653.0" prefHeight="43.0" prefWidth="207.0" />
+      <ListView fx:id="listViewServicios" layoutY="653.0" prefHeight="164.0" prefWidth="175.0" />
+      <Button fx:id="btnGestionarHabitaciones" layoutX="934.0" layoutY="617.0" mnemonicParsing="false" onAction="#gestionarHabitaciones" prefHeight="31.0" prefWidth="175.0" text="Gestionar Habitaciones" />
    </children>
 </AnchorPane>

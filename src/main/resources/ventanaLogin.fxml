@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="413.0" prefWidth="372.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.bookyourstay.controlador.LoginControlador">
@@ -21,12 +22,20 @@
         <TextField fx:id="txtCodigoActivacion" layoutX="74.0" layoutY="199.0" prefHeight="45.0" prefWidth="230.0" promptText="Codigo de activacion" />
 
 
-        <Button fx:id="btnIniciarSesion" layoutX="120.0" layoutY="269.0" mnemonicParsing="false" onAction="#ingresarUsuario" prefHeight="31.0" prefWidth="139.0" text="Iniciar sesión">
+        <Button fx:id="btnIniciarSesion" layoutX="74.0" layoutY="269.0" mnemonicParsing="false" onAction="#ingresarUsuario" prefHeight="31.0" prefWidth="139.0" text="Iniciar sesión">
             <effect>
                 <Blend />
             </effect>
         </Button>
-        <Label layoutX="113.0" layoutY="324.0" text="¿Olvidó su contraseña?" />
-        <Button fx:id="btnGenerarCodigo" layoutX="117.0" layoutY="354.0" mnemonicParsing="false" text="Nueva contraseña" />
+        <Label layoutX="118.0" layoutY="324.0" text="¿Olvidó su contraseña?" textAlignment="CENTER" textFill="#0400fc">
+         <effect>
+            <Glow />
+         </effect></Label>
+        <Button fx:id="btnGenerarCodigo" layoutX="126.0" layoutY="354.0" mnemonicParsing="false" text="Nueva contraseña" />
+      <Button fx:id="btnVolverInicio" layoutX="225.0" layoutY="269.0" mnemonicParsing="false" onAction="#irVentanaInicio" prefHeight="31.0" prefWidth="81.0" text="Volver">
+         <effect>
+            <Blend />
+         </effect>
+      </Button>
     </children>
 </AnchorPane>

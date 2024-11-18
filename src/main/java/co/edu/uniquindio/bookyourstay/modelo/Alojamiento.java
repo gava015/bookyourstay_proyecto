@@ -1,5 +1,6 @@
 package co.edu.uniquindio.bookyourstay.modelo;
 
+import co.edu.uniquindio.bookyourstay.enums.Ciudad;
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.util.List;
 public abstract class  Alojamiento {
     protected String id;
     protected String nombre;
-    protected String cuidad;
+    protected Ciudad cuidad;
     protected String descripcion;
     protected String urlImagen;
     protected double precioPorNoche;

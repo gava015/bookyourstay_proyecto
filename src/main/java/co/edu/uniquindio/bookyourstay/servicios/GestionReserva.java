@@ -10,10 +10,13 @@ import java.util.List;
 
 public interface GestionReserva {
 
-    Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, Ciudad ciudad, String descripcion, String urlImagen, double precioNoche,
-                                 int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) throws Exception;
+    Alojamiento crearAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, Ciudad ciudad, String descripcion, String urlImagen,
+                                 double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) throws Exception;
 
+    Alojamiento modificarAlojamiento(String alojamientoId, TipoAlojamiento tipoAlojamiento, String nombre, Ciudad ciudad, String descripcion,
+                                     String urlImagen, double precioNoche, int capacidadMax, double costoMantenimiento, List<Servicio> listaServicios) throws Exception;
 
+    void eliminarAlojamiento(String alojamientoId) throws Exception;
 
 
   /* Usuario login(String correo, String contrasena) throws Exception;

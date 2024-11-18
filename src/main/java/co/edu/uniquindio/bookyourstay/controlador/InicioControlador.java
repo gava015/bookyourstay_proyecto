@@ -1,5 +1,6 @@
 package co.edu.uniquindio.bookyourstay.controlador;
 
+import co.edu.uniquindio.bookyourstay.enums.Ciudad;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
 import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,19 +21,19 @@ public class InicioControlador implements Initializable {
     private ComboBox<TipoAlojamiento> cbTipoAlojamiento;
 
     @FXML
-    private TableColumn<Alojamiento,String> colNombre;
+    private TableColumn<Alojamiento, String> colNombre;
 
     @FXML
-    private TableColumn<Alojamiento,String> colCiudad;
+    private TableColumn<Ciudad, String> colCiudad;
 
     @FXML
-    private TableColumn<Alojamiento,String> colDescripcion;
+    private TableColumn<Alojamiento, String> colDescripcion;
 
     @FXML
-    private TableColumn<Alojamiento,String> colPrecioNoche;
+    private TableColumn<Alojamiento, String> colPrecioNoche;
 
     @FXML
-    private TableColumn<Alojamiento,String> colCapacidad;
+    private TableColumn<Alojamiento, String> colCapacidad;
 
 
     private final ControladorPrincipal controladorPrincipal;
@@ -56,7 +57,7 @@ public class InicioControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colCiudad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCuidad()));
+        colCiudad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
         colDescripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
         colPrecioNoche.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
         colCapacidad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescripcion()));
