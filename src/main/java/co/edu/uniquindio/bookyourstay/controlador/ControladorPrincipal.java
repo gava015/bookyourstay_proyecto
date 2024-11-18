@@ -103,6 +103,11 @@ public class ControladorPrincipal implements GestionUsuario, GestionReserva, Alo
     }
 
     @Override
+    public void recargarBilletera(String identificacion, String valor) throws Exception {
+        servicioReserva.recargarBilletera(identificacion, valor);
+    }
+
+    @Override
     public List<Reserva> obtenerReservasPorCliente(String identificacion) throws Exception {
         return servicioReserva.obtenerReservasPorCliente(identificacion);
     }

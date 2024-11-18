@@ -14,5 +14,12 @@ public class Cliente extends Usuario {
         super(identificacion, nombre, telefono, correo, contrasenia, estado, codigoConfirmacionCuenta);
         billeteraVirtual = new BilleteraVirtual(0);
     }
+
+    @Override
+    public String toString() {
+        return "identificacion: " + identificacion + "\n" +
+                "Cliente: " + nombre + "\n" +
+                "Correo='" + correo + "\n";
+    }
 }
 

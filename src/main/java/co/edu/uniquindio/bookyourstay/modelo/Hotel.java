@@ -3,6 +3,7 @@ package co.edu.uniquindio.bookyourstay.modelo;
 import co.edu.uniquindio.bookyourstay.enums.Ciudad;
 import co.edu.uniquindio.bookyourstay.enums.Servicio;
 import co.edu.uniquindio.bookyourstay.enums.TipoAlojamiento;
+import co.edu.uniquindio.bookyourstay.util.FechaUtil;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -30,6 +31,14 @@ public class Hotel extends Alojamiento {
 
     @Override
     double calcularValorTotal(LocalDate fechaInicio, LocalDate fechaFinal, int numeroHuespedes) {
+        int diasReserva = FechaUtil.obtenerDiferenciaEnDias(fechaInicio, fechaFinal);
+
+        for (Habitacion habitacion: getListaHabitaciones()) {
+            if (habitacion.getCapacidad() == numeroHuespedes) {
+                return habitacion.getPrecio() * diasReserva;
+            }
+        }
+
         return 0;
     }
 

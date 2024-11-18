@@ -7,9 +7,16 @@ import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.MailerBuilder;
 
 public class EnvioEmail {
+
     private static final String CORREO = "valentina.garzong@uqvirtual.edu.co";
 
     private static final String CONTRASENIA = "ppcq ervg aagk lwin";
+
+    private static final Mailer mailer = MailerBuilder
+            .withSMTPServer("smtp.gmail.com", 587, CORREO, CONTRASENIA)
+            .withTransportStrategy(TransportStrategy.SMTP_TLS)
+            .withDebugLogging(false)
+            .buildMailer();
 
     public static void enviarNotificacion(String destinatario, String asunto, String mensaje) {
 
@@ -20,16 +27,18 @@ public class EnvioEmail {
                 .withPlainText(mensaje)
                 .buildEmail();
 
-        try (Mailer mailer = MailerBuilder
-                .withSMTPServer("smtp.gmail.com", 587, CORREO, CONTRASENIA)
-                .withTransportStrategy(TransportStrategy.SMTP_TLS)
-                .withDebugLogging(true)
-                .buildMailer()) {
+        mailer.sendMail(email);
+    }
 
-            mailer.sendMail(email);
+    public static void enviarNotificacionConQR(String destinatario, String asunto, String mensaje, byte[] qrBytes) {
+        Email email = EmailBuilder.startingBlank()
+                .from(CORREO)
+                .to(destinatario)
+                .withSubject(asunto)
+                .withPlainText(mensaje)
+                .withAttachment("reserva_qr.png", qrBytes, "image/png")
+                .buildEmail();
 
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        mailer.sendMail(email);
     }
 }

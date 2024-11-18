@@ -27,7 +27,7 @@
             </font>
         </Button>
         <ComboBox fx:id="cbTipoAlojamiento" layoutX="31.0" layoutY="143.0" prefHeight="31.0" prefWidth="210.0" promptText=" Tipo de alojamiento" />
-        <TableView layoutX="31.0" layoutY="223.0" prefHeight="393.0" prefWidth="807.0">
+        <TableView fx:id="tablaAlojamientos" layoutX="31.0" layoutY="223.0" prefHeight="393.0" prefWidth="807.0">
             <columns>
                 <TableColumn fx:id="colNombre" prefWidth="142.0" text="Nombre" />
                 <TableColumn fx:id="colCiudad" prefWidth="126.0" text="Cuidad" />

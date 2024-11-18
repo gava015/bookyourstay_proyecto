@@ -372,6 +372,21 @@ public class ServicioReserva implements GestionUsuario, ReservaGestionable,  Ges
         listaReservas.remove(reserva);
     }
 
+    @Override
+    public void recargarBilletera(String identificacion, String valor) throws Exception {
+        Cliente cliente = (Cliente) buscarUsuario(identificacion);
+        if (cliente == null) {
+            throw new Exception("No existe un cliente con la identificación: " + identificacion);
+        }
+
+        double valorRecarga = Double.parseDouble(valor);
+        if (valorRecarga <= 0) {
+            throw new Exception("Debes ingresar un valor correcto");
+        }
+
+        cliente.getBilleteraVirtual().recargarBilletera(valorRecarga);
+    }
+
     private void validarCamposAlojamiento(TipoAlojamiento tipoAlojamiento, String nombre, Ciudad ciudad, String descripcion, String urlImagen,
                                           double precioNoche, int capacidadMax) throws Exception {
 
@@ -429,8 +444,9 @@ public class ServicioReserva implements GestionUsuario, ReservaGestionable,  Ges
 
             Random random = new Random();
             for (int i = 0; i < 5; i++) {
+                TipoAlojamiento [] tipoAlojamientos = {TipoAlojamiento.CASA, TipoAlojamiento.APARTAMENTO, TipoAlojamiento.HOTEL};
                 Alojamiento alojamiento = crearAlojamiento(
-                        TipoAlojamiento.HOTEL,
+                        tipoAlojamientos[random.nextInt(0,3)],
                         "Alojamiento " + (i + 1),
                         Ciudad.BOGOTA,
                         "Descripción de prueba",
@@ -440,8 +456,10 @@ public class ServicioReserva implements GestionUsuario, ReservaGestionable,  Ges
                         40000,
                         List.of(Servicio.PISCINA, Servicio.WIFI, Servicio.DESAYUNO));
 
-                for (int j = 0; j < random.nextInt(1, 5); j++) {
-                    crearHabitacion(alojamiento.getId(), String.valueOf(j), "250000","2","URL", "Prueba");
+                if(alojamiento.obtenerTipoAlojamiento().equals(TipoAlojamiento.HOTEL)) {
+                    for (int j = 0; j < random.nextInt(1, 5); j++) {
+                        crearHabitacion(alojamiento.getId(), String.valueOf(j), "250000","2","URL", "Prueba");
+                    }
                 }
             }
 

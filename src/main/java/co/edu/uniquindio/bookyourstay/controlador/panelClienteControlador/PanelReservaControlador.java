@@ -2,8 +2,11 @@ package co.edu.uniquindio.bookyourstay.controlador.panelClienteControlador;
 
 import co.edu.uniquindio.bookyourstay.controlador.ControladorPrincipal;
 import co.edu.uniquindio.bookyourstay.modelo.Alojamiento;
+import co.edu.uniquindio.bookyourstay.modelo.Reserva;
 import co.edu.uniquindio.bookyourstay.modelo.Sesion;
+import co.edu.uniquindio.bookyourstay.modelo.Usuario;
 import co.edu.uniquindio.bookyourstay.util.AlertaUtil;
+import co.edu.uniquindio.bookyourstay.util.EnvioEmail;
 import co.edu.uniquindio.bookyourstay.util.QRUtil;
 import com.google.zxing.WriterException;
 import javafx.beans.property.SimpleStringProperty;
@@ -111,8 +114,9 @@ public class PanelReservaControlador implements Initializable {
         String numeroHuespedes = txtCantidadHuespedes.getText();
 
         try {
-            controladorPrincipal.crearReserva(identificacion, alojamiento.getId(), fechaInicio, fechaFinal, numeroHuespedes);
-            generarCodigoQR();
+            Reserva reserva = controladorPrincipal.crearReserva(identificacion, alojamiento.getId(), fechaInicio, fechaFinal, numeroHuespedes);
+            enviarNotificacion(reserva, generarCodigoQR());
+
             AlertaUtil.mostrarAlerta("Reservaste el alojamiento!", Alert.AlertType.INFORMATION);
             limpiarCampos();
 
@@ -150,17 +154,32 @@ public class PanelReservaControlador implements Initializable {
         txtCantidadHuespedes.clear();
     }
 
-    private void generarCodigoQR() {
+    private byte[] generarCodigoQR() {
         try {
-            BufferedImage qrImage = QRUtil.generarQR("Gracias por tu reserva!" , 300, 300);
+            BufferedImage lectorImagenQR = QRUtil.generarQR("Gracias por tu reserva!", 300, 300);
             ByteArrayOutputStream os = new ByteArrayOutputStream();
-            ImageIO.write(qrImage, "PNG", os);
-            Image imagenQR = new Image(new ByteArrayInputStream(os.toByteArray()));
-            imageViewQR.setImage(imagenQR);
+
+            ImageIO.write(lectorImagenQR, "PNG", os);
+
+            Image imagen = new Image(new ByteArrayInputStream(os.toByteArray()));
+            imageViewQR.setImage(imagen);
+
+            return os.toByteArray();
 
         } catch (Exception e) {
             AlertaUtil.mostrarAlerta("No pudimos generar el código QR", Alert.AlertType.ERROR);
+            return new byte[0];
         }
     }
 
+    private void enviarNotificacion(Reserva reserva, byte[] salida) {
+        Usuario usuario = Sesion.getInstancia().getUsuario();
+
+        String mensaje = reserva.getCliente()
+                + "\nInstalación: " + reserva.getAlojamiento().getNombre()
+                + "\nFecha: " + reserva.getFechaInicio() + " " + reserva.getFechaFinal()
+                + "\nTotal: " + reserva.getCostoReserva();
+
+        EnvioEmail.enviarNotificacionConQR(usuario.getCorreo(), "Gracias por tu reserva", mensaje, salida);
+    }
 }

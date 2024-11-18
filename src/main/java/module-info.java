@@ -4,6 +4,7 @@ module co.edu.uniquindio.bookyourstay {
     requires static lombok;
     requires org.simplejavamail.core;
     requires org.simplejavamail;
+    requires jakarta.activation;
     requires com.google.zxing;
     requires com.google.zxing.javase;
     requires java.desktop;
